@@ -1,0 +1,9 @@
+C:\Users\Ethan\Desktop\Lab01Evogelsa\LineSegments\LineSegments\bin\Debug\LineSegments.exe.config
+C:\Users\Ethan\Desktop\Lab01Evogelsa\LineSegments\LineSegments\bin\Debug\LineSegments.exe
+C:\Users\Ethan\Desktop\Lab01Evogelsa\LineSegments\LineSegments\bin\Debug\LineSegments.pdb
+C:\Users\Ethan\Desktop\Lab01Evogelsa\LineSegments\LineSegments\obj\Debug\LineSegments.csprojResolveAssemblyReference.cache
+C:\Users\Ethan\Desktop\Lab01Evogelsa\LineSegments\LineSegments\obj\Debug\LineSegments.Form1.resources
+C:\Users\Ethan\Desktop\Lab01Evogelsa\LineSegments\LineSegments\obj\Debug\LineSegments.Properties.Resources.resources
+C:\Users\Ethan\Desktop\Lab01Evogelsa\LineSegments\LineSegments\obj\Debug\LineSegments.csproj.GenerateResource.Cache
+C:\Users\Ethan\Desktop\Lab01Evogelsa\LineSegments\LineSegments\obj\Debug\LineSegments.exe
+C:\Users\Ethan\Desktop\Lab01Evogelsa\LineSegments\LineSegments\obj\Debug\LineSegments.pdb

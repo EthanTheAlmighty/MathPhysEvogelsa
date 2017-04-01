@@ -1,0 +1,12 @@
+C:\Users\svc-student\Desktop\Lab01Evogelsa\Spheres\Spheres\bin\Debug\Spheres.exe.config
+C:\Users\svc-student\Desktop\Lab01Evogelsa\Spheres\Spheres\bin\Debug\Spheres.exe
+C:\Users\svc-student\Desktop\Lab01Evogelsa\Spheres\Spheres\bin\Debug\Spheres.pdb
+C:\Users\svc-student\Desktop\Lab01Evogelsa\Spheres\Spheres\obj\Debug\Spheres.csprojResolveAssemblyReference.cache
+C:\Users\svc-student\Desktop\Lab01Evogelsa\Spheres\Spheres\obj\Debug\Spheres.Form1.resources
+C:\Users\svc-student\Desktop\Lab01Evogelsa\Spheres\Spheres\obj\Debug\Spheres.Properties.Resources.resources
+C:\Users\svc-student\Desktop\Lab01Evogelsa\Spheres\Spheres\obj\Debug\Spheres.csproj.GenerateResource.Cache
+C:\Users\svc-student\Desktop\Lab01Evogelsa\Spheres\Spheres\obj\Debug\Spheres.exe
+C:\Users\svc-student\Desktop\Lab01Evogelsa\Spheres\Spheres\obj\Debug\Spheres.pdb
+C:\Users\Ethan\Desktop\Lab01Evogelsa\Spheres\Spheres\bin\Debug\Spheres.exe.config
+C:\Users\Ethan\Desktop\Lab01Evogelsa\Spheres\Spheres\obj\Debug\Spheres.exe
+C:\Users\Ethan\Desktop\Lab01Evogelsa\Spheres\Spheres\obj\Debug\Spheres.pdb

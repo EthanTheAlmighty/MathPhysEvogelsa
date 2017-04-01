@@ -1,0 +1,9 @@
+C:\Users\Ethan\Desktop\MathPhys\Projections Lab\Projections Lab\bin\Debug\Projections Lab.exe.config
+C:\Users\Ethan\Desktop\MathPhys\Projections Lab\Projections Lab\bin\Debug\Projections Lab.exe
+C:\Users\Ethan\Desktop\MathPhys\Projections Lab\Projections Lab\bin\Debug\Projections Lab.pdb
+C:\Users\Ethan\Desktop\MathPhys\Projections Lab\Projections Lab\obj\Debug\Projections Lab.csprojResolveAssemblyReference.cache
+C:\Users\Ethan\Desktop\MathPhys\Projections Lab\Projections Lab\obj\Debug\Projections_Lab.Form1.resources
+C:\Users\Ethan\Desktop\MathPhys\Projections Lab\Projections Lab\obj\Debug\Projections_Lab.Properties.Resources.resources
+C:\Users\Ethan\Desktop\MathPhys\Projections Lab\Projections Lab\obj\Debug\Projections Lab.csproj.GenerateResource.Cache
+C:\Users\Ethan\Desktop\MathPhys\Projections Lab\Projections Lab\obj\Debug\Projections Lab.exe
+C:\Users\Ethan\Desktop\MathPhys\Projections Lab\Projections Lab\obj\Debug\Projections Lab.pdb

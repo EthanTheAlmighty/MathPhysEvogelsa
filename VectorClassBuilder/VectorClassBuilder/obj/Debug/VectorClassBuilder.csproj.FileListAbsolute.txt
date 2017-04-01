@@ -1,0 +1,6 @@
+C:\Users\Ethan\Desktop\VectorClassBuilder\VectorClassBuilder\bin\Debug\VectorClassBuilder.exe.config
+C:\Users\Ethan\Desktop\VectorClassBuilder\VectorClassBuilder\bin\Debug\VectorClassBuilder.exe
+C:\Users\Ethan\Desktop\VectorClassBuilder\VectorClassBuilder\bin\Debug\VectorClassBuilder.pdb
+C:\Users\Ethan\Desktop\VectorClassBuilder\VectorClassBuilder\obj\Debug\VectorClassBuilder.csprojResolveAssemblyReference.cache
+C:\Users\Ethan\Desktop\VectorClassBuilder\VectorClassBuilder\obj\Debug\VectorClassBuilder.exe
+C:\Users\Ethan\Desktop\VectorClassBuilder\VectorClassBuilder\obj\Debug\VectorClassBuilder.pdb

@@ -1,0 +1,9 @@
+C:\Users\svc-student\Desktop\ClosestPointsLab\ClosestPointsLab\bin\Debug\ClosestPointsLab.exe.config
+C:\Users\svc-student\Desktop\ClosestPointsLab\ClosestPointsLab\bin\Debug\ClosestPointsLab.exe
+C:\Users\svc-student\Desktop\ClosestPointsLab\ClosestPointsLab\bin\Debug\ClosestPointsLab.pdb
+C:\Users\svc-student\Desktop\ClosestPointsLab\ClosestPointsLab\obj\Debug\ClosestPointsLab.csprojResolveAssemblyReference.cache
+C:\Users\svc-student\Desktop\ClosestPointsLab\ClosestPointsLab\obj\Debug\ClosestPointsLab.Form1.resources
+C:\Users\svc-student\Desktop\ClosestPointsLab\ClosestPointsLab\obj\Debug\ClosestPointsLab.Properties.Resources.resources
+C:\Users\svc-student\Desktop\ClosestPointsLab\ClosestPointsLab\obj\Debug\ClosestPointsLab.csproj.GenerateResource.Cache
+C:\Users\svc-student\Desktop\ClosestPointsLab\ClosestPointsLab\obj\Debug\ClosestPointsLab.exe
+C:\Users\svc-student\Desktop\ClosestPointsLab\ClosestPointsLab\obj\Debug\ClosestPointsLab.pdb
