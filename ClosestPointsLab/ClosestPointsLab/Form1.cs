@@ -12,11 +12,15 @@ namespace ClosestPointsLab
 {
     public partial class Form1 : Form
     {
+        //variable declaration
         Vector3D shipPos;
-        Vector3D meteorPos, meteorDir;
-        Vector3D pointA, pointB, pointC;
+        Vector3D meteorPos, meteorDir; //pos and direction of the line
+        Vector3D pointA, pointB, pointC; // points on the plane
+        // vector3D objects to store the closest point and distance
+        //to be able to print them out
         Vector3D closestPoint, closestDistance;
-        Vector3D moonClose, moonDistance;
+        //same storage as above but for the second part with the plane  
+        Vector3D moonClose, moonDistance; 
         public Form1()
         {
             InitializeComponent();
@@ -59,18 +63,24 @@ namespace ClosestPointsLab
                 double.Parse(CYInput.Text), double.Parse(CZInput.Text));
 
             //get closest point and distance for the ship and meteor
-            closestPoint = Vector3D.ClosestPointLine(shipPos, meteorPos, meteorDir);
-            closestDistance = Vector3D.LineDistance(shipPos, meteorPos, meteorDir);
+            closestPoint = 
+                Vector3D.ClosestPointLine(shipPos, meteorPos, meteorDir);
+            closestDistance = 
+                Vector3D.LineDistance(shipPos, meteorPos, meteorDir);
             //display point and distance
             ClosestPointMeteorText.Text = closestPoint.PrintRect() + " km";
-            DistanceMeteorText.Text = closestDistance.GetMagnitude().ToString("F2") + " km";
+            DistanceMeteorText.Text = 
+                closestDistance.GetMagnitude().ToString("F2") + " km";
 
             //get closest point and distance for the ship and plane
-            moonClose = Vector3D.ClosestPointPlane(pointA, pointB, pointC, shipPos);
-            moonDistance = Vector3D.PlaneDistance(pointA, pointB, pointC, shipPos);
+            moonClose = 
+                Vector3D.ClosestPointPlane(pointA, pointB, pointC, shipPos);
+            moonDistance = 
+                Vector3D.PlaneDistance(pointA, pointB, pointC, shipPos);
             //print closest point and distance
             PlanePointText.Text = moonClose.PrintRect() + " km";
-            PlaneDistanceText.Text = moonDistance.GetMagnitude().ToString("F2") + " km";
+            PlaneDistanceText.Text = 
+                moonDistance.GetMagnitude().ToString("F2") + " km";
         }
     }
 }

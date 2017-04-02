@@ -417,9 +417,8 @@ public class Vector3D
     /// <param name="q">Point of reference for the closest point</param>
     /// <returns></returns>
     public static Vector3D ClosestPointPlane(Vector3D a, Vector3D b, Vector3D c, Vector3D q)
-    {
-        return (q - ((q - a) > CrossProduct(b - a, c - a)));
-    }
+        //S = Q - Proj(PQ onto n)
+        => (q - ((q - a) > CrossProduct(b - a, c - a)));
     public static Vector3D PlaneDistance(Vector3D a, Vector3D b, Vector3D c, Vector3D q)
         => (q - ClosestPointPlane(a,b,c,q));
     /*
