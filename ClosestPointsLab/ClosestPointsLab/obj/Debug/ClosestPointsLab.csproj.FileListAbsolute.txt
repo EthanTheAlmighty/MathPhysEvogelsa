@@ -7,3 +7,4 @@ C:\Users\svc-student\Desktop\ClosestPointsLab\ClosestPointsLab\obj\Debug\Closest
 C:\Users\svc-student\Desktop\ClosestPointsLab\ClosestPointsLab\obj\Debug\ClosestPointsLab.csproj.GenerateResource.Cache
 C:\Users\svc-student\Desktop\ClosestPointsLab\ClosestPointsLab\obj\Debug\ClosestPointsLab.exe
 C:\Users\svc-student\Desktop\ClosestPointsLab\ClosestPointsLab\obj\Debug\ClosestPointsLab.pdb
+C:\Users\svc-student\Desktop\mathPhys\ClosestPointsLab\ClosestPointsLab\bin\Debug\ClosestPointsLab.exe.config
