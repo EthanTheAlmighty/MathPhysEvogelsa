@@ -39,11 +39,35 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.VerticesText = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.FinalResultsOutput = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TranslationRadio = new System.Windows.Forms.RadioButton();
-            this.RawScaleRadio = new System.Windows.Forms.RadioButton();
             this.ScaleAboutCenterRadio = new System.Windows.Forms.RadioButton();
+            this.RawScaleRadio = new System.Windows.Forms.RadioButton();
+            this.TranslationRadio = new System.Windows.Forms.RadioButton();
+            this.TranslateXInput = new System.Windows.Forms.TextBox();
+            this.TranslateYInput = new System.Windows.Forms.TextBox();
+            this.TranslateZInput = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.ScaleZInput = new System.Windows.Forms.TextBox();
+            this.ScaleYInput = new System.Windows.Forms.TextBox();
+            this.ScaleXInput = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.CenterZInput = new System.Windows.Forms.TextBox();
+            this.CenterYInput = new System.Windows.Forms.TextBox();
+            this.CenterXInput = new System.Windows.Forms.TextBox();
+            this.CalculateButton = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,47 +167,25 @@
             this.VerticesText.TabIndex = 10;
             this.VerticesText.Text = "label6";
             // 
-            // listBox1
+            // FinalResultsOutput
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(622, 52);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(253, 368);
-            this.listBox1.TabIndex = 11;
+            this.FinalResultsOutput.FormattingEnabled = true;
+            this.FinalResultsOutput.Location = new System.Drawing.Point(622, 52);
+            this.FinalResultsOutput.Name = "FinalResultsOutput";
+            this.FinalResultsOutput.Size = new System.Drawing.Size(135, 368);
+            this.FinalResultsOutput.TabIndex = 11;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ScaleAboutCenterRadio);
             this.groupBox1.Controls.Add(this.RawScaleRadio);
             this.groupBox1.Controls.Add(this.TranslationRadio);
-            this.groupBox1.Location = new System.Drawing.Point(92, 237);
+            this.groupBox1.Location = new System.Drawing.Point(92, 171);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 100);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Type of transformation";
-            // 
-            // TranslationRadio
-            // 
-            this.TranslationRadio.AutoSize = true;
-            this.TranslationRadio.Location = new System.Drawing.Point(33, 19);
-            this.TranslationRadio.Name = "TranslationRadio";
-            this.TranslationRadio.Size = new System.Drawing.Size(77, 17);
-            this.TranslationRadio.TabIndex = 0;
-            this.TranslationRadio.TabStop = true;
-            this.TranslationRadio.Text = "Translation";
-            this.TranslationRadio.UseVisualStyleBackColor = true;
-            // 
-            // RawScaleRadio
-            // 
-            this.RawScaleRadio.AutoSize = true;
-            this.RawScaleRadio.Location = new System.Drawing.Point(33, 42);
-            this.RawScaleRadio.Name = "RawScaleRadio";
-            this.RawScaleRadio.Size = new System.Drawing.Size(85, 17);
-            this.RawScaleRadio.TabIndex = 1;
-            this.RawScaleRadio.TabStop = true;
-            this.RawScaleRadio.Text = "Raw Scaling";
-            this.RawScaleRadio.UseVisualStyleBackColor = true;
             // 
             // ScaleAboutCenterRadio
             // 
@@ -195,14 +197,263 @@
             this.ScaleAboutCenterRadio.TabStop = true;
             this.ScaleAboutCenterRadio.Text = "Scale About Center";
             this.ScaleAboutCenterRadio.UseVisualStyleBackColor = true;
+            this.ScaleAboutCenterRadio.CheckedChanged += new System.EventHandler(this.ScaleAboutCenterRadio_CheckedChanged);
+            // 
+            // RawScaleRadio
+            // 
+            this.RawScaleRadio.AutoSize = true;
+            this.RawScaleRadio.Location = new System.Drawing.Point(33, 42);
+            this.RawScaleRadio.Name = "RawScaleRadio";
+            this.RawScaleRadio.Size = new System.Drawing.Size(85, 17);
+            this.RawScaleRadio.TabIndex = 1;
+            this.RawScaleRadio.TabStop = true;
+            this.RawScaleRadio.Text = "Raw Scaling";
+            this.RawScaleRadio.UseVisualStyleBackColor = true;
+            this.RawScaleRadio.CheckedChanged += new System.EventHandler(this.RawScaleRadio_CheckedChanged);
+            // 
+            // TranslationRadio
+            // 
+            this.TranslationRadio.AutoSize = true;
+            this.TranslationRadio.Location = new System.Drawing.Point(33, 19);
+            this.TranslationRadio.Name = "TranslationRadio";
+            this.TranslationRadio.Size = new System.Drawing.Size(77, 17);
+            this.TranslationRadio.TabIndex = 0;
+            this.TranslationRadio.TabStop = true;
+            this.TranslationRadio.Text = "Translation";
+            this.TranslationRadio.UseVisualStyleBackColor = true;
+            this.TranslationRadio.CheckedChanged += new System.EventHandler(this.TranslationRadio_CheckedChanged);
+            // 
+            // TranslateXInput
+            // 
+            this.TranslateXInput.Location = new System.Drawing.Point(109, 327);
+            this.TranslateXInput.Name = "TranslateXInput";
+            this.TranslateXInput.Size = new System.Drawing.Size(41, 20);
+            this.TranslateXInput.TabIndex = 13;
+            // 
+            // TranslateYInput
+            // 
+            this.TranslateYInput.Location = new System.Drawing.Point(109, 353);
+            this.TranslateYInput.Name = "TranslateYInput";
+            this.TranslateYInput.Size = new System.Drawing.Size(41, 20);
+            this.TranslateYInput.TabIndex = 14;
+            // 
+            // TranslateZInput
+            // 
+            this.TranslateZInput.Location = new System.Drawing.Point(109, 379);
+            this.TranslateZInput.Name = "TranslateZInput";
+            this.TranslateZInput.Size = new System.Drawing.Size(41, 20);
+            this.TranslateZInput.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(106, 311);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 13);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Translate";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(84, 330);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(19, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Δx";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(84, 356);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 13);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Δy";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(84, 382);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(19, 13);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Δz";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(206, 385);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(19, 13);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Δz";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(206, 359);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(19, 13);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Δy";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(206, 333);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(19, 13);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Δx";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(234, 313);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(34, 13);
+            this.label13.TabIndex = 23;
+            this.label13.Text = "Scale";
+            // 
+            // ScaleZInput
+            // 
+            this.ScaleZInput.Location = new System.Drawing.Point(231, 382);
+            this.ScaleZInput.Name = "ScaleZInput";
+            this.ScaleZInput.Size = new System.Drawing.Size(41, 20);
+            this.ScaleZInput.TabIndex = 22;
+            // 
+            // ScaleYInput
+            // 
+            this.ScaleYInput.Location = new System.Drawing.Point(231, 356);
+            this.ScaleYInput.Name = "ScaleYInput";
+            this.ScaleYInput.Size = new System.Drawing.Size(41, 20);
+            this.ScaleYInput.TabIndex = 21;
+            // 
+            // ScaleXInput
+            // 
+            this.ScaleXInput.Location = new System.Drawing.Point(231, 330);
+            this.ScaleXInput.Name = "ScaleXInput";
+            this.ScaleXInput.Size = new System.Drawing.Size(41, 20);
+            this.ScaleXInput.TabIndex = 20;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(327, 382);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(19, 13);
+            this.label14.TabIndex = 33;
+            this.label14.Text = "Δz";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(327, 356);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(19, 13);
+            this.label15.TabIndex = 32;
+            this.label15.Text = "Δy";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(327, 330);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(19, 13);
+            this.label16.TabIndex = 31;
+            this.label16.Text = "Δx";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(349, 311);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(38, 13);
+            this.label17.TabIndex = 30;
+            this.label17.Text = "Center";
+            // 
+            // CenterZInput
+            // 
+            this.CenterZInput.Location = new System.Drawing.Point(352, 379);
+            this.CenterZInput.Name = "CenterZInput";
+            this.CenterZInput.Size = new System.Drawing.Size(41, 20);
+            this.CenterZInput.TabIndex = 29;
+            // 
+            // CenterYInput
+            // 
+            this.CenterYInput.Location = new System.Drawing.Point(352, 353);
+            this.CenterYInput.Name = "CenterYInput";
+            this.CenterYInput.Size = new System.Drawing.Size(41, 20);
+            this.CenterYInput.TabIndex = 28;
+            // 
+            // CenterXInput
+            // 
+            this.CenterXInput.Location = new System.Drawing.Point(352, 327);
+            this.CenterXInput.Name = "CenterXInput";
+            this.CenterXInput.Size = new System.Drawing.Size(41, 20);
+            this.CenterXInput.TabIndex = 27;
+            // 
+            // CalculateButton
+            // 
+            this.CalculateButton.Location = new System.Drawing.Point(455, 190);
+            this.CalculateButton.Name = "CalculateButton";
+            this.CalculateButton.Size = new System.Drawing.Size(103, 54);
+            this.CalculateButton.TabIndex = 34;
+            this.CalculateButton.Text = "Calculate";
+            this.CalculateButton.UseVisualStyleBackColor = true;
+            this.CalculateButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(109, 46);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(45, 13);
+            this.label18.TabIndex = 35;
+            this.label18.Text = "Vertices";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(638, 31);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(103, 17);
+            this.label19.TabIndex = 36;
+            this.label19.Text = "Edited Vertices";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 449);
+            this.ClientSize = new System.Drawing.Size(784, 449);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.CalculateButton);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.CenterZInput);
+            this.Controls.Add(this.CenterYInput);
+            this.Controls.Add(this.CenterXInput);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.ScaleZInput);
+            this.Controls.Add(this.ScaleYInput);
+            this.Controls.Add(this.ScaleXInput);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.TranslateZInput);
+            this.Controls.Add(this.TranslateYInput);
+            this.Controls.Add(this.TranslateXInput);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.FinalResultsOutput);
             this.Controls.Add(this.VerticesText);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -236,11 +487,35 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label VerticesText;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox FinalResultsOutput;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton ScaleAboutCenterRadio;
         private System.Windows.Forms.RadioButton RawScaleRadio;
         private System.Windows.Forms.RadioButton TranslationRadio;
+        private System.Windows.Forms.TextBox TranslateXInput;
+        private System.Windows.Forms.TextBox TranslateYInput;
+        private System.Windows.Forms.TextBox TranslateZInput;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox ScaleZInput;
+        private System.Windows.Forms.TextBox ScaleYInput;
+        private System.Windows.Forms.TextBox ScaleXInput;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox CenterZInput;
+        private System.Windows.Forms.TextBox CenterYInput;
+        private System.Windows.Forms.TextBox CenterXInput;
+        private System.Windows.Forms.Button CalculateButton;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
     }
 }
 

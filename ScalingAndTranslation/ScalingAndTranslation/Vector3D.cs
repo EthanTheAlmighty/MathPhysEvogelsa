@@ -17,6 +17,9 @@ using System.Threading.Tasks;
  * 
  * Added in cross product, the ability to find the closest point,
  * and the ability to find the distance to that closest point
+ * 
+ * added in matrix operations for translation, raw scaling and
+ * scaling about center all using a list of vertices
  */
 
 public class Vector3D
@@ -199,25 +202,23 @@ public class Vector3D
     /// Calculates the magnitude of the given vector
     /// </summary>
     /// <returns>magnitude</returns>
-    public double GetMagnitude()
-    {
+    public double GetMagnitude() =>
         //√(vx^2 + vy^2 + vz^2)
-        return Math.Sqrt(GetX() * GetX() + GetY() * GetY() + GetZ() * GetZ());
-    }
+        (Math.Sqrt(GetX() * GetX() + GetY() * GetY() + GetZ() * GetZ()));
 
     /// <summary>
     /// returns the pitch with the arcsine calculation
     /// </summary>
     /// <returns>pitch (radians)</returns>
-    public double GetPitch()
-    {
-        //check is mag is zeero vector
-        if (GetMagnitude() == 0)
-            return 0;
-        //doesn't need corrections, as the only valid Pitch's are in the arcsine's range
-        //also converted from radians to degrees
-        return (Math.Asin(GetZ() / GetMagnitude()) * 180 / Math.PI);
-    }
+    public double GetPitch() => (GetMagnitude() == 0) ? 0 : (Math.Asin(GetZ() / GetMagnitude()) * 180 / Math.PI);
+    //{
+    //    //check is mag is zeero vector
+    //    if (GetMagnitude() == 0)
+    //        return 0;
+    //    //doesn't need corrections, as the only valid Pitch's are in the arcsine's range
+    //    //also converted from radians to degrees
+    //    return (Math.Asin(GetZ() / GetMagnitude()) * 180 / Math.PI);
+    //}
 
     /// <summary>
     /// GetHeading 
@@ -242,25 +243,25 @@ public class Vector3D
     /// Alpha is the angle the vector makes with the positive x-axis, α    
     /// </summary>
     /// <returns>α</returns>
-    public double GetAlpha()
-    {
-        //a check to see if the magnitude, which is the denominator here, is zero
-        if (GetMagnitude() == 0)
-            return 0;
-        return (Math.Acos(GetX() / GetMagnitude()) * 180 / Math.PI);
-    }
+    public double GetAlpha() => (GetMagnitude() == 0) ? 0 : (Math.Acos(GetX() / GetMagnitude()) * 180 / Math.PI);
+    //{
+    //    //a check to see if the magnitude, which is the denominator here, is zero
+    //    if (GetMagnitude() == 0)
+    //        return 0;
+    //    return (Math.Acos(GetX() / GetMagnitude()) * 180 / Math.PI);
+    //}
 
     /// <summary>
     /// Beta is the angle the vector makes with the positive y-axis, β
     /// </summary>
-    /// <returns>β/returns>
-    public double GetBeta()
-    {
-        //a check to see if the magnitude, which is the denominator here, is zero
-        if (GetMagnitude() == 0)
-            return 0;
-        return (Math.Acos(GetY() / GetMagnitude()) * 180 / Math.PI);
-    }
+    /// <returns>β<returns>
+    public double GetBeta() => (GetMagnitude() == 0) ? 0 : (Math.Acos(GetY() / GetMagnitude()) * 180 / Math.PI);
+    //{
+    //    //a check to see if the magnitude, which is the denominator here, is zero
+    //    if (GetMagnitude() == 0)
+    //        return 0;
+    //    return (Math.Acos(GetY() / GetMagnitude()) * 180 / Math.PI);
+    //}
 
     /// <summary>
     /// Gamma is the angle the vector makes with the positive z-axis, γ
@@ -441,7 +442,7 @@ public class Vector3D
         //create the transformation "matrix"
         Vector3D t1 = new Vector3D(1, 0, 0, t.GetX());
         Vector3D t2 = new Vector3D(0, 1, 0, t.GetY());
-        Vector3D t3 = new Vector3D(0, 0, 1, t.GetY());
+        Vector3D t3 = new Vector3D(0, 0, 1, t.GetZ());
         Vector3D t4 = new Vector3D(0, 0, 0, 1);
 
         for(int i = 0; i < v.Count; i++)
@@ -466,7 +467,7 @@ public class Vector3D
         //create the transformation "matrix"
         Vector3D t1 = new Vector3D(s.GetX(), 0, 0, 0);
         Vector3D t2 = new Vector3D(0, s.GetY(), 0, 0);
-        Vector3D t3 = new Vector3D(0, 0, s.GetY(), 0);
+        Vector3D t3 = new Vector3D(0, 0, s.GetZ(), 0);
         Vector3D t4 = new Vector3D(0, 0, 0, 1);
 
         for (int i = 0; i < v.Count; i++)
@@ -492,7 +493,7 @@ public class Vector3D
         //create the transformation "matrix"
         Vector3D t1 = new Vector3D(s.GetX(), 0, 0, c.GetX() * (1 - s.GetX()));
         Vector3D t2 = new Vector3D(0, s.GetY(), 0, c.GetY() * (1 - s.GetY()));
-        Vector3D t3 = new Vector3D(0, 0, s.GetY(), c.GetZ() * (1 - s.GetZ()));
+        Vector3D t3 = new Vector3D(0, 0, s.GetZ(), c.GetZ() * (1 - s.GetZ()));
         Vector3D t4 = new Vector3D(0, 0, 0, 1);
 
         for (int i = 0; i < v.Count; i++)
