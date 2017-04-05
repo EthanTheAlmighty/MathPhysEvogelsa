@@ -26,12 +26,14 @@ namespace ScalingAndTranslation
             vertices.Add(new Vector3D(double.Parse(VertexXInput.Text), 
                 double.Parse(VertexYInput.Text), double.Parse(VertexZInput.Text)));
             VerticesText.Text = vertices.Count.ToString();
+            OldVerticesOutput.Items.Add(vertices[vertices.Count - 1].PrintRect());
             ClearVertexText();
         }
 
         private void ClearVertexButton_Click(object sender, EventArgs e)
         {
             vertices.Clear();
+            OldVerticesOutput.Items.Clear();
             VerticesText.Text = vertices.Count.ToString();
             ClearVertexText();
         }
@@ -90,6 +92,7 @@ namespace ScalingAndTranslation
         private void button1_Click(object sender, EventArgs e)
         {
             newVertices.Clear();
+            FinalResultsOutput.Items.Clear();
             //switch for which modification is selected
             switch(userSelection)
             {
