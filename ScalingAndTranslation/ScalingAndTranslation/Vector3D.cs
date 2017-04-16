@@ -49,7 +49,13 @@ public class Vector3D
         this.z = z;
         this.w = 1;
     }
-
+    /// <summary>
+    /// Constructor that can now take in 4 parameters for matrix operations
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <param name="z"></param>
+    /// <param name="w"></param>
     public Vector3D(double x, double y, double z, double w)
     {
         this.x = x;
@@ -292,7 +298,10 @@ public class Vector3D
     /// </summary>
     /// <returns></returns>
     public double GetZ() => (z);
-
+    /// <summary>
+    /// Get the private x coordinate and returns it
+    /// </summary>
+    /// <returns></returns>
     public double GetW() => (w);
     #endregion
 
@@ -375,7 +384,13 @@ public class Vector3D
     /// <returns></returns>
     public static double operator %(Vector3D u, Vector3D v) =>
         (Math.Acos((u * v) / (u.GetMagnitude() * v.GetMagnitude())));
-
+    /// <summary>
+    /// overloads the ^ operator to be a dot product that also takes the
+    /// w component into consideration
+    /// </summary>
+    /// <param name="u"></param>
+    /// <param name="v"></param>
+    /// <returns></returns>
     public static double operator ^(Vector3D u, Vector3D v) =>
         (u.GetX() * v.GetX() + u.GetY() * v.GetY() +
         u.GetZ() * v.GetZ() + u.GetW() * v.GetW());
@@ -427,7 +442,9 @@ public class Vector3D
         => (q - ((q - a) > CrossProduct(b - a, c - a)));
     public static Vector3D PlaneDistance(Vector3D a, Vector3D b, Vector3D c, Vector3D q)
         => (q - ClosestPointPlane(a,b,c,q));
+    #endregion
 
+    #region"Matrix Operations"
     /// <summary>
     /// TranslateVertices takes in a Vector3D, t, which has the delta x,y, and z
     /// that the source Vector, v, will be translated
@@ -445,14 +462,12 @@ public class Vector3D
         Vector3D t3 = new Vector3D(0, 0, 1, t.GetZ());
         Vector3D t4 = new Vector3D(0, 0, 0, 1);
 
-        for(int i = 0; i < v.Count; i++)
+        for (int i = 0; i < v.Count; i++)
         {
-            tempList.Add(new Vector3D(t1^v[i], t2^v[i], t3^v[i], t4^v[i]));
+            tempList.Add(new Vector3D(t1 ^ v[i], t2 ^ v[i], t3 ^ v[i], t4 ^ v[i]));
         }
-
         return tempList;
     }
-
     /// <summary>
     /// RawScale Vertices takes in a vector, s, that holds the scale change of
     /// the vertices in x, y, z.  This all changes the list of Vectors, v
@@ -474,10 +489,8 @@ public class Vector3D
         {
             tempList.Add(new Vector3D(t1 ^ v[i], t2 ^ v[i], t3 ^ v[i], t4 ^ v[i]));
         }
-
         return tempList;
     }
-
     /// <summary>
     /// ScaleAboutCenterVertices takes in the change of scale, s, and the 
     /// distance to center
@@ -500,7 +513,6 @@ public class Vector3D
         {
             tempList.Add(new Vector3D(t1 ^ v[i], t2 ^ v[i], t3 ^ v[i], t4 ^ v[i]));
         }
-
         return tempList;
     }
     #endregion
