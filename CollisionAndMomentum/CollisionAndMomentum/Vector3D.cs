@@ -451,16 +451,17 @@ public class Vector3D
         => (q - ClosestPointPlane(a,b,c,q));
 
     public static Vector3D CollisionWithPlane(Vector3D v, double ε, Vector3D AB, Vector3D AC)
-    {
-        //find the normal of the plane
-        Vector3D normal = CrossProduct(AB, AC);
-        //noramlize the normal vector
-        normal.Normalize();
+        => (v - ((1 + ε) * (v * !CrossProduct(AB, AC)) & !CrossProduct(AB, AC)));
+    //{
+    //    //find the normal of the plane
+    //    Vector3D normal = CrossProduct(AB, AC);
+    //    //noramlize the normal vector
+    //    normal.Normalize();
 
-        Vector3D vFinal = new Vector3D();
-        vFinal = v - ((1 + ε)*(v * normal) & normal);
-        return vFinal;
-    }
+    //    Vector3D vFinal = new Vector3D();
+    //    vFinal = v - ((1 + ε)*(v * normal) & normal);
+    //    return vFinal;
+    //}
     #endregion
 
     #region"Matrix Operations"
