@@ -15,6 +15,7 @@ namespace ScalingAndTranslation
         List<Vector3D> vertices = new List<Vector3D>();
         List<Vector3D> newVertices = new List<Vector3D>();
         int userSelection;
+        double userDegrees;
         public Form1()
         {
             InitializeComponent();
@@ -48,71 +49,57 @@ namespace ScalingAndTranslation
         //the three checks
         private void TranslationRadio_CheckedChanged(object sender, EventArgs e)
         {
-            userSelection = 0;
 
-            TranslateXInput.Enabled = true;
-            TranslateYInput.Enabled = true;
-            TranslateZInput.Enabled = true;
-            ScaleXInput.Enabled = false;
-            ScaleYInput.Enabled = false;
-            ScaleZInput.Enabled = false;
-            CenterXInput.Enabled = false;
-            CenterYInput.Enabled = false;
-            CenterZInput.Enabled = false;
         }
         private void RawScaleRadio_CheckedChanged(object sender, EventArgs e)
         {
-            userSelection = 1;
 
-            TranslateXInput.Enabled = false;
-            TranslateYInput.Enabled = false;
-            TranslateZInput.Enabled = false;
-            ScaleXInput.Enabled = true;
-            ScaleYInput.Enabled = true;
-            ScaleZInput.Enabled = true;
-            CenterXInput.Enabled = false;
-            CenterYInput.Enabled = false;
-            CenterZInput.Enabled = false;
         }
         private void ScaleAboutCenterRadio_CheckedChanged(object sender, EventArgs e)
         {
-            userSelection = 2;
 
-            TranslateXInput.Enabled = false;
-            TranslateYInput.Enabled = false;
-            TranslateZInput.Enabled = false;
-            ScaleXInput.Enabled = true;
-            ScaleYInput.Enabled = true;
-            ScaleZInput.Enabled = true;
-            CenterXInput.Enabled = true;
-            CenterYInput.Enabled = true;
-            CenterZInput.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             newVertices.Clear();
             FinalResultsOutput.Items.Clear();
+
+            userDegrees = double.Parse(degreesBox.Text);
+
             //switch for which modification is selected
+            //switch(userSelection)
+            //{
+            //    //translation
+            //    case 0:
+            //        newVertices.AddRange(Vector3D.TranslateVertices(
+            //            new Vector3D(double.Parse(TranslateXInput.Text),    //X
+            //            double.Parse(TranslateYInput.Text),                 //Y
+            //            double.Parse(TranslateZInput.Text))                 //Z
+            //            , vertices));       //the list to be converted
+            //        break;
+            //    //raw scale
+            //    case 1:
+            //        newVertices.AddRange(Vector3D.RawScaleVertices(new Vector3D(double.Parse(ScaleXInput.Text), double.Parse(ScaleYInput.Text), double.Parse(ScaleZInput.Text)), vertices));
+            //        break;
+            //    //scale about center
+            //    case 2:
+            //        newVertices.AddRange(Vector3D.ScaleAboutCenterVertices(new Vector3D(double.Parse(ScaleXInput.Text), double.Parse(ScaleYInput.Text), double.Parse(ScaleZInput.Text)),   //scale stored as vector
+            //            new Vector3D(double.Parse(CenterXInput.Text), double.Parse(CenterYInput.Text), double.Parse(CenterZInput.Text)),    //center in vector form
+            //            vertices));     //list of vertices to be changed
+            //        break;
+            //}
+
             switch(userSelection)
             {
-                //translation
                 case 0:
-                    newVertices.AddRange(Vector3D.TranslateVertices(
-                        new Vector3D(double.Parse(TranslateXInput.Text),    //X
-                        double.Parse(TranslateYInput.Text),                 //Y
-                        double.Parse(TranslateZInput.Text))                 //Z
-                        , vertices));       //the list to be converted
+                    newVertices.AddRange(Vector3D.RotateAboutXAxis(vertices, userDegrees));
                     break;
-                //raw scale
                 case 1:
-                    newVertices.AddRange(Vector3D.RawScaleVertices(new Vector3D(double.Parse(ScaleXInput.Text), double.Parse(ScaleYInput.Text), double.Parse(ScaleZInput.Text)), vertices));
+                    newVertices.AddRange(Vector3D.RotateAboutYAxis(vertices, userDegrees));
                     break;
-                //scale about center
                 case 2:
-                    newVertices.AddRange(Vector3D.ScaleAboutCenterVertices(new Vector3D(double.Parse(ScaleXInput.Text), double.Parse(ScaleYInput.Text), double.Parse(ScaleZInput.Text)),   //scale stored as vector
-                        new Vector3D(double.Parse(CenterXInput.Text), double.Parse(CenterYInput.Text), double.Parse(CenterZInput.Text)),    //center in vector form
-                        vertices));     //list of vertices to be changed
+                    newVertices.AddRange(Vector3D.RotateAboutZAxis(vertices, userDegrees));
                     break;
             }
 
@@ -120,6 +107,21 @@ namespace ScalingAndTranslation
             {
                 FinalResultsOutput.Items.Add(vertex.PrintRect());
             }
+        }
+
+        private void XradioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            userSelection = 0;
+        }
+
+        private void YRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            userSelection = 1;
+        }
+
+        private void ZRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            userSelection = 2;
         }
     }
 }

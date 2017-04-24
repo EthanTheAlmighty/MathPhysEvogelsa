@@ -70,6 +70,11 @@
             this.label19 = new System.Windows.Forms.Label();
             this.OldVerticesOutput = new System.Windows.Forms.ListBox();
             this.label20 = new System.Windows.Forms.Label();
+            this.XradioButton = new System.Windows.Forms.RadioButton();
+            this.YRadioButton = new System.Windows.Forms.RadioButton();
+            this.ZRadioButton = new System.Windows.Forms.RadioButton();
+            this.label21 = new System.Windows.Forms.Label();
+            this.degreesBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -179,12 +184,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ZRadioButton);
+            this.groupBox1.Controls.Add(this.YRadioButton);
+            this.groupBox1.Controls.Add(this.XradioButton);
             this.groupBox1.Controls.Add(this.ScaleAboutCenterRadio);
             this.groupBox1.Controls.Add(this.RawScaleRadio);
             this.groupBox1.Controls.Add(this.TranslationRadio);
-            this.groupBox1.Location = new System.Drawing.Point(92, 171);
+            this.groupBox1.Location = new System.Drawing.Point(46, 174);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.Size = new System.Drawing.Size(278, 100);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Type of transformation";
@@ -192,6 +200,7 @@
             // ScaleAboutCenterRadio
             // 
             this.ScaleAboutCenterRadio.AutoSize = true;
+            this.ScaleAboutCenterRadio.Enabled = false;
             this.ScaleAboutCenterRadio.Location = new System.Drawing.Point(33, 65);
             this.ScaleAboutCenterRadio.Name = "ScaleAboutCenterRadio";
             this.ScaleAboutCenterRadio.Size = new System.Drawing.Size(117, 17);
@@ -204,6 +213,7 @@
             // RawScaleRadio
             // 
             this.RawScaleRadio.AutoSize = true;
+            this.RawScaleRadio.Enabled = false;
             this.RawScaleRadio.Location = new System.Drawing.Point(33, 42);
             this.RawScaleRadio.Name = "RawScaleRadio";
             this.RawScaleRadio.Size = new System.Drawing.Size(85, 17);
@@ -216,6 +226,7 @@
             // TranslationRadio
             // 
             this.TranslationRadio.AutoSize = true;
+            this.TranslationRadio.Enabled = false;
             this.TranslationRadio.Location = new System.Drawing.Point(33, 19);
             this.TranslationRadio.Name = "TranslationRadio";
             this.TranslationRadio.Size = new System.Drawing.Size(77, 17);
@@ -227,21 +238,24 @@
             // 
             // TranslateXInput
             // 
-            this.TranslateXInput.Location = new System.Drawing.Point(109, 327);
+            this.TranslateXInput.Enabled = false;
+            this.TranslateXInput.Location = new System.Drawing.Point(55, 332);
             this.TranslateXInput.Name = "TranslateXInput";
             this.TranslateXInput.Size = new System.Drawing.Size(41, 20);
             this.TranslateXInput.TabIndex = 13;
             // 
             // TranslateYInput
             // 
-            this.TranslateYInput.Location = new System.Drawing.Point(109, 353);
+            this.TranslateYInput.Enabled = false;
+            this.TranslateYInput.Location = new System.Drawing.Point(55, 358);
             this.TranslateYInput.Name = "TranslateYInput";
             this.TranslateYInput.Size = new System.Drawing.Size(41, 20);
             this.TranslateYInput.TabIndex = 14;
             // 
             // TranslateZInput
             // 
-            this.TranslateZInput.Location = new System.Drawing.Point(109, 379);
+            this.TranslateZInput.Enabled = false;
+            this.TranslateZInput.Location = new System.Drawing.Point(55, 384);
             this.TranslateZInput.Name = "TranslateZInput";
             this.TranslateZInput.Size = new System.Drawing.Size(41, 20);
             this.TranslateZInput.TabIndex = 15;
@@ -249,7 +263,8 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(106, 311);
+            this.label6.Enabled = false;
+            this.label6.Location = new System.Drawing.Point(52, 316);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 13);
             this.label6.TabIndex = 16;
@@ -258,7 +273,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(84, 330);
+            this.label7.Location = new System.Drawing.Point(30, 335);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(19, 13);
             this.label7.TabIndex = 17;
@@ -267,7 +282,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(84, 356);
+            this.label8.Location = new System.Drawing.Point(30, 361);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(19, 13);
             this.label8.TabIndex = 18;
@@ -276,7 +291,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(84, 382);
+            this.label9.Location = new System.Drawing.Point(30, 387);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(19, 13);
             this.label9.TabIndex = 19;
@@ -285,7 +300,8 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(206, 385);
+            this.label10.Enabled = false;
+            this.label10.Location = new System.Drawing.Point(99, 388);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(19, 13);
             this.label10.TabIndex = 26;
@@ -294,7 +310,8 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(206, 359);
+            this.label11.Enabled = false;
+            this.label11.Location = new System.Drawing.Point(99, 362);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(19, 13);
             this.label11.TabIndex = 25;
@@ -303,7 +320,8 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(206, 333);
+            this.label12.Enabled = false;
+            this.label12.Location = new System.Drawing.Point(99, 336);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(19, 13);
             this.label12.TabIndex = 24;
@@ -312,7 +330,8 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(234, 313);
+            this.label13.Enabled = false;
+            this.label13.Location = new System.Drawing.Point(127, 316);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(34, 13);
             this.label13.TabIndex = 23;
@@ -320,21 +339,24 @@
             // 
             // ScaleZInput
             // 
-            this.ScaleZInput.Location = new System.Drawing.Point(231, 382);
+            this.ScaleZInput.Enabled = false;
+            this.ScaleZInput.Location = new System.Drawing.Point(124, 385);
             this.ScaleZInput.Name = "ScaleZInput";
             this.ScaleZInput.Size = new System.Drawing.Size(41, 20);
             this.ScaleZInput.TabIndex = 22;
             // 
             // ScaleYInput
             // 
-            this.ScaleYInput.Location = new System.Drawing.Point(231, 356);
+            this.ScaleYInput.Enabled = false;
+            this.ScaleYInput.Location = new System.Drawing.Point(124, 359);
             this.ScaleYInput.Name = "ScaleYInput";
             this.ScaleYInput.Size = new System.Drawing.Size(41, 20);
             this.ScaleYInput.TabIndex = 21;
             // 
             // ScaleXInput
             // 
-            this.ScaleXInput.Location = new System.Drawing.Point(231, 330);
+            this.ScaleXInput.Enabled = false;
+            this.ScaleXInput.Location = new System.Drawing.Point(124, 333);
             this.ScaleXInput.Name = "ScaleXInput";
             this.ScaleXInput.Size = new System.Drawing.Size(41, 20);
             this.ScaleXInput.TabIndex = 20;
@@ -342,7 +364,8 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(327, 382);
+            this.label14.Enabled = false;
+            this.label14.Location = new System.Drawing.Point(170, 387);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(19, 13);
             this.label14.TabIndex = 33;
@@ -351,7 +374,8 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(327, 356);
+            this.label15.Enabled = false;
+            this.label15.Location = new System.Drawing.Point(170, 361);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(19, 13);
             this.label15.TabIndex = 32;
@@ -360,7 +384,8 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(327, 330);
+            this.label16.Enabled = false;
+            this.label16.Location = new System.Drawing.Point(170, 335);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(19, 13);
             this.label16.TabIndex = 31;
@@ -369,7 +394,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(349, 311);
+            this.label17.Location = new System.Drawing.Point(192, 316);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(38, 13);
             this.label17.TabIndex = 30;
@@ -377,21 +402,24 @@
             // 
             // CenterZInput
             // 
-            this.CenterZInput.Location = new System.Drawing.Point(352, 379);
+            this.CenterZInput.Enabled = false;
+            this.CenterZInput.Location = new System.Drawing.Point(195, 384);
             this.CenterZInput.Name = "CenterZInput";
             this.CenterZInput.Size = new System.Drawing.Size(41, 20);
             this.CenterZInput.TabIndex = 29;
             // 
             // CenterYInput
             // 
-            this.CenterYInput.Location = new System.Drawing.Point(352, 353);
+            this.CenterYInput.Enabled = false;
+            this.CenterYInput.Location = new System.Drawing.Point(195, 358);
             this.CenterYInput.Name = "CenterYInput";
             this.CenterYInput.Size = new System.Drawing.Size(41, 20);
             this.CenterYInput.TabIndex = 28;
             // 
             // CenterXInput
             // 
-            this.CenterXInput.Location = new System.Drawing.Point(352, 327);
+            this.CenterXInput.Enabled = false;
+            this.CenterXInput.Location = new System.Drawing.Point(195, 332);
             this.CenterXInput.Name = "CenterXInput";
             this.CenterXInput.Size = new System.Drawing.Size(41, 20);
             this.CenterXInput.TabIndex = 27;
@@ -443,11 +471,65 @@
             this.label20.TabIndex = 38;
             this.label20.Text = "Old Vertices";
             // 
+            // XradioButton
+            // 
+            this.XradioButton.AutoSize = true;
+            this.XradioButton.Location = new System.Drawing.Point(159, 19);
+            this.XradioButton.Name = "XradioButton";
+            this.XradioButton.Size = new System.Drawing.Size(32, 17);
+            this.XradioButton.TabIndex = 3;
+            this.XradioButton.TabStop = true;
+            this.XradioButton.Text = "X";
+            this.XradioButton.UseVisualStyleBackColor = true;
+            this.XradioButton.CheckedChanged += new System.EventHandler(this.XradioButton_CheckedChanged);
+            // 
+            // YRadioButton
+            // 
+            this.YRadioButton.AutoSize = true;
+            this.YRadioButton.Location = new System.Drawing.Point(159, 42);
+            this.YRadioButton.Name = "YRadioButton";
+            this.YRadioButton.Size = new System.Drawing.Size(32, 17);
+            this.YRadioButton.TabIndex = 4;
+            this.YRadioButton.TabStop = true;
+            this.YRadioButton.Text = "Y";
+            this.YRadioButton.UseVisualStyleBackColor = true;
+            this.YRadioButton.CheckedChanged += new System.EventHandler(this.YRadioButton_CheckedChanged);
+            // 
+            // ZRadioButton
+            // 
+            this.ZRadioButton.AutoSize = true;
+            this.ZRadioButton.Location = new System.Drawing.Point(159, 65);
+            this.ZRadioButton.Name = "ZRadioButton";
+            this.ZRadioButton.Size = new System.Drawing.Size(32, 17);
+            this.ZRadioButton.TabIndex = 5;
+            this.ZRadioButton.TabStop = true;
+            this.ZRadioButton.Text = "Z";
+            this.ZRadioButton.UseVisualStyleBackColor = true;
+            this.ZRadioButton.CheckedChanged += new System.EventHandler(this.ZRadioButton_CheckedChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(302, 296);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(102, 13);
+            this.label21.TabIndex = 39;
+            this.label21.Text = "Degrees of Rotation";
+            // 
+            // degreesBox
+            // 
+            this.degreesBox.Location = new System.Drawing.Point(333, 312);
+            this.degreesBox.Name = "degreesBox";
+            this.degreesBox.Size = new System.Drawing.Size(42, 20);
+            this.degreesBox.TabIndex = 40;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 443);
+            this.Controls.Add(this.degreesBox);
+            this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.OldVerticesOutput);
             this.Controls.Add(this.label19);
@@ -540,6 +622,11 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ListBox OldVerticesOutput;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.RadioButton ZRadioButton;
+        private System.Windows.Forms.RadioButton YRadioButton;
+        private System.Windows.Forms.RadioButton XradioButton;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox degreesBox;
     }
 }
 

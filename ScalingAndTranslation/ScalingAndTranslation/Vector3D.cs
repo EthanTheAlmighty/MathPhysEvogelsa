@@ -171,6 +171,13 @@ public class Vector3D
         this.y = p2.GetY() - p1.GetY();
         this.z = p2.GetZ() - p1.GetZ();
     }
+
+    public void Normalize()
+    {
+        x /= GetMagnitude();
+        y /= GetMagnitude();
+        z /= GetMagnitude();
+    }
     #endregion
 
     #region "Print"
@@ -441,7 +448,30 @@ public class Vector3D
         //S = Q - Proj(PQ onto n)
         => (q - ((q - a) > CrossProduct(b - a, c - a)));
     public static Vector3D PlaneDistance(Vector3D a, Vector3D b, Vector3D c, Vector3D q)
-        => (q - ClosestPointPlane(a,b,c,q));
+        => (q - ClosestPointPlane(a, b, c, q));
+    /// <summary>
+    /// method takes in two vectors in a plane, AB and AC, and uses then to get a 
+    /// crossproduct and then a normal vector of the plane.  This is then used
+    /// with the coefficient of restitution, , and the initial velocity, v, 
+    /// and returns the new velocity after a collision
+    /// </summary>
+    /// <param name="v">initial velocity</param>
+    /// <param name="ε">coefficient of restitution</param>
+    /// <param name="AB">first vector in the plane</param>
+    /// <param name="AC">second vector in the plane</param>
+    /// <returns></returns>
+    public static Vector3D CollisionWithPlane(Vector3D v, double ε, Vector3D AB, Vector3D AC)
+        => (v - ((1 + ε) * (v * !CrossProduct(AB, AC)) & !CrossProduct(AB, AC)));
+    //{
+    //    //find the normal of the plane
+    //    Vector3D normal = CrossProduct(AB, AC);
+    //    //noramlize the normal vector
+    //    normal.Normalize();
+
+    //    Vector3D vFinal = new Vector3D();
+    //    vFinal = v - ((1 + ε)*(v * normal) & normal);
+    //    return vFinal;
+    //}
     #endregion
 
     #region"Matrix Operations"
@@ -504,17 +534,86 @@ public class Vector3D
         List<Vector3D> tempList = new List<Vector3D>();
 
         //create the transformation "matrix"
-        Vector3D t1 = new Vector3D(s.GetX(), 0, 0, c.GetX() * (1 - s.GetX()));
-        Vector3D t2 = new Vector3D(0, s.GetY(), 0, c.GetY() * (1 - s.GetY()));
-        Vector3D t3 = new Vector3D(0, 0, s.GetZ(), c.GetZ() * (1 - s.GetZ()));
-        Vector3D t4 = new Vector3D(0, 0, 0, 1);
+        //Vector3D t1 = new Vector3D(s.GetX(), 0, 0, c.GetX() * (1 - s.GetX()));
+        //Vector3D t2 = new Vector3D(0, s.GetY(), 0, c.GetY() * (1 - s.GetY()));
+        //Vector3D t3 = new Vector3D(0, 0, s.GetZ(), c.GetZ() * (1 - s.GetZ()));
+        //Vector3D t4 = new Vector3D(0, 0, 0, 1);
+
+        Matrix4x4 sACMatrix = new Matrix4x4(new Vector3D(s.GetX(), 0, 0, c.GetX() * (1 - s.GetX())),
+                                            new Vector3D(0, s.GetY(), 0, c.GetY() * (1 - s.GetY())),
+                                            new Vector3D(0, 0, s.GetZ(), c.GetZ() * (1 - s.GetZ())),
+                                            new Vector3D(0, 0, 0, 1));
 
         for (int i = 0; i < v.Count; i++)
         {
-            tempList.Add(new Vector3D(t1 ^ v[i], t2 ^ v[i], t3 ^ v[i], t4 ^ v[i]));
+            //tempList.Add(new Vector3D(t1 ^ v[i], t2 ^ v[i], t3 ^ v[i], t4 ^ v[i]));
+            tempList.Add(sACMatrix * v[i]);
         }
         return tempList;
     }
     #endregion
+
+    #region Matrix Rotations
+    public static List<Vector3D> RotateAboutXAxis(List<Vector3D> v, double θ)
+    {
+        double tempAngle = θ * Math.PI / 180;
+        List<Vector3D> tempList = new List<Vector3D>();
+
+        Matrix4x4 rotator = new Matrix4x4(new Vector3D(1, 0, 0, 0), new Vector3D(0, Math.Cos(tempAngle), -Math.Sin(tempAngle), 0), new Vector3D(0, Math.Sin(tempAngle), Math.Cos(tempAngle), 0), new Vector3D(0, 0, 0, 1));
+        for (int i = 0; i < v.Count; i++)
+        {
+            tempList.Add(rotator * v[i]);
+        }
+        return tempList;
+    }
+
+    public static List<Vector3D> RotateAboutYAxis(List<Vector3D> v, double θ)
+    {
+        double tempAngle = θ * Math.PI / 180;
+        List<Vector3D> tempList = new List<Vector3D>();
+
+        Matrix4x4 rotator = new Matrix4x4(new Vector3D(Math.Cos(tempAngle), 0, Math.Sin(tempAngle), 0), new Vector3D(0, 1, 0, 0), new Vector3D(-Math.Sin(tempAngle), 0, Math.Cos(tempAngle), 0), new Vector3D(0, 0, 0, 1));
+        for (int i = 0; i < v.Count; i++)
+        {
+            tempList.Add(rotator * v[i]);
+        }
+        return tempList;
+    }
+
+    public static List<Vector3D> RotateAboutZAxis(List<Vector3D> v, double θ)
+    {
+        double tempAngle = θ * Math.PI / 180;
+        List<Vector3D> tempList = new List<Vector3D>();
+
+        Matrix4x4 rotator = new Matrix4x4(new Vector3D(Math.Cos(tempAngle), -Math.Sin(tempAngle), 0, 0), new Vector3D(Math.Sin(tempAngle), Math.Cos(tempAngle), 0, 0), new Vector3D(0, 0, 1, 0), new Vector3D(0, 0, 0, 1));
+        for (int i = 0; i < v.Count; i++)
+        {
+            tempList.Add(rotator * v[i]);
+        }
+        return tempList;
+    }
+    #endregion
+
+}
+
+public class Matrix4x4
+{
+    Vector3D[] rows;
+
+    public Matrix4x4()
+    {
+        rows = new Vector3D[4];
+    }
+
+    public Matrix4x4(Vector3D r1, Vector3D r2, Vector3D r3, Vector3D r4)
+    {
+        rows = new Vector3D[4];
+        rows[0] = r1;
+        rows[1] = r2;
+        rows[2] = r3;
+        rows[3] = r4;
+    }
+    //allows matrix4x4 to multiply next to a vector
+    public static Vector3D operator *(Matrix4x4 m, Vector3D v) => new Vector3D(m.rows[0] * v, m.rows[1] * v, m.rows[2] * v, m.rows[3] * v);
 }
 
