@@ -20,6 +20,9 @@ using System.Threading.Tasks;
  * 
  * added in matrix operations for translation, raw scaling and
  * scaling about center all using a list of vertices
+ * 
+ * added in a matrix4x4 class to house matrices and addded in static
+ * operations to rotate about all 3 of the main axis
  */
 
 public class Vector3D
@@ -554,42 +557,79 @@ public class Vector3D
     #endregion
 
     #region Matrix Rotations
+    /// <summary>
+    /// static method that takes in a list of vector3D's, and then rotates
+    /// them θ degrees about the X Axis
+    /// </summary>
+    /// <param name="v">collection of vertices to be transformed</param>
+    /// <param name="θ">degrees to rotate</param>
+    /// <returns></returns>
     public static List<Vector3D> RotateAboutXAxis(List<Vector3D> v, double θ)
     {
+        //convert from degrees to radians so the math namespace can use it
         double tempAngle = θ * Math.PI / 180;
+        //initialize the list that will return
         List<Vector3D> tempList = new List<Vector3D>();
 
+        //create the matrix that will allow rotation about the X axis
         Matrix4x4 rotator = new Matrix4x4(new Vector3D(1, 0, 0, 0), new Vector3D(0, Math.Cos(tempAngle), -Math.Sin(tempAngle), 0), new Vector3D(0, Math.Sin(tempAngle), Math.Cos(tempAngle), 0), new Vector3D(0, 0, 0, 1));
+        //loop through each vertex and rotate it
         for (int i = 0; i < v.Count; i++)
         {
+            //add each to the list
             tempList.Add(rotator * v[i]);
         }
+        //return the now full new and rotated list
         return tempList;
     }
-
+    /// <summary>
+    /// static method that takes in a list of vector3D's, and then rotates
+    /// them θ degrees about the Y Axis
+    /// </summary>
+    /// <param name="v"></param>
+    /// <param name="θ"></param>
+    /// <returns></returns>
     public static List<Vector3D> RotateAboutYAxis(List<Vector3D> v, double θ)
     {
+        //convert from degrees to radians so the math namespace can use it
         double tempAngle = θ * Math.PI / 180;
+        //initialize the list that will return
         List<Vector3D> tempList = new List<Vector3D>();
 
+        //create the matrix that will allow rotation about the Y axis
         Matrix4x4 rotator = new Matrix4x4(new Vector3D(Math.Cos(tempAngle), 0, Math.Sin(tempAngle), 0), new Vector3D(0, 1, 0, 0), new Vector3D(-Math.Sin(tempAngle), 0, Math.Cos(tempAngle), 0), new Vector3D(0, 0, 0, 1));
+        //loop through each vertex and rotate it
         for (int i = 0; i < v.Count; i++)
         {
+            //add each to the list
             tempList.Add(rotator * v[i]);
         }
+        //return the now full new and rotated list
         return tempList;
     }
-
+    /// <summary>
+    /// static method that takes in a list of vector3D's, and then rotates
+    /// them θ degrees about the Z Axis
+    /// </summary>
+    /// <param name="v"></param>
+    /// <param name="θ"></param>
+    /// <returns></returns>
     public static List<Vector3D> RotateAboutZAxis(List<Vector3D> v, double θ)
     {
+        //convert from degrees to radians so the math namespace can use it
         double tempAngle = θ * Math.PI / 180;
+        //initialize the list that will return
         List<Vector3D> tempList = new List<Vector3D>();
 
+        //create the matrix that will allow rotation about the Z axis
         Matrix4x4 rotator = new Matrix4x4(new Vector3D(Math.Cos(tempAngle), -Math.Sin(tempAngle), 0, 0), new Vector3D(Math.Sin(tempAngle), Math.Cos(tempAngle), 0, 0), new Vector3D(0, 0, 1, 0), new Vector3D(0, 0, 0, 1));
+        //loop through each vertex and rotate it
         for (int i = 0; i < v.Count; i++)
         {
+            //add each to the list
             tempList.Add(rotator * v[i]);
         }
+        //return the now full new and rotated list
         return tempList;
     }
     #endregion

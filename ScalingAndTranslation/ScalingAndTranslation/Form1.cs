@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ScalingAndTranslation
@@ -49,22 +43,25 @@ namespace ScalingAndTranslation
         //the three checks
         private void TranslationRadio_CheckedChanged(object sender, EventArgs e)
         {
-
+            //fades stuff
         }
         private void RawScaleRadio_CheckedChanged(object sender, EventArgs e)
         {
-
+            //fades stuff
         }
         private void ScaleAboutCenterRadio_CheckedChanged(object sender, EventArgs e)
         {
-
+            //fades stuff
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //clears the lists upon each iteration of code so there are no
+            //duplicate entries
             newVertices.Clear();
             FinalResultsOutput.Items.Clear();
 
+            //reads in the degrees of rotation from the form
             userDegrees = double.Parse(degreesBox.Text);
 
             //switch for which modification is selected
@@ -93,12 +90,18 @@ namespace ScalingAndTranslation
             switch(userSelection)
             {
                 case 0:
+                    //takes the list vectors in the object and rotates them
+                    //around the x axis
                     newVertices.AddRange(Vector3D.RotateAboutXAxis(vertices, userDegrees));
                     break;
                 case 1:
+                    //takes the list vectors in the object and rotates them
+                    //around the y axis
                     newVertices.AddRange(Vector3D.RotateAboutYAxis(vertices, userDegrees));
                     break;
                 case 2:
+                    //takes the list vectors in the object and rotates them
+                    //around the z axis
                     newVertices.AddRange(Vector3D.RotateAboutZAxis(vertices, userDegrees));
                     break;
             }
@@ -109,16 +112,17 @@ namespace ScalingAndTranslation
             }
         }
 
+        //this gives an int value to which of the 3 axis options the user can select
+        //so it can be filtered through a switch statement to call the
+        //right method
         private void XradioButton_CheckedChanged(object sender, EventArgs e)
         {
             userSelection = 0;
         }
-
         private void YRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             userSelection = 1;
         }
-
         private void ZRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             userSelection = 2;
