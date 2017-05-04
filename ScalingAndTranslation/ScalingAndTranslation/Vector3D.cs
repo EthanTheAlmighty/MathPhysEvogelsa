@@ -23,6 +23,8 @@ using System.Threading.Tasks;
  * 
  * added in a matrix4x4 class to house matrices and addded in static
  * operations to rotate about all 3 of the main axis
+ * 
+ * quaternion class added 
  */
 
 public class Vector3D
@@ -655,5 +657,49 @@ public class Matrix4x4
     }
     //allows matrix4x4 to multiply next to a vector
     public static Vector3D operator *(Matrix4x4 m, Vector3D v) => new Vector3D(m.rows[0] * v, m.rows[1] * v, m.rows[2] * v, m.rows[3] * v);
+}
+
+public class Quaternion
+{
+    double r;
+    Vector3D c;
+
+    public Quaternion(double scalar, Vector3D vect)
+    {
+        r = scalar;
+        c = vect;
+    }
+
+    public Quaternion(double r, double x, double y, double z)
+    {
+        this.r = r;
+        this.c = new Vector3D(x, y, z);
+    }
+
+    #region Operator Overloads
+    public static Quaternion operator +(Quaternion a, Quaternion b) =>
+        new Quaternion(a.r + b.r, a.c.GetX() + b.c.GetX(), a.c.GetY() + b.c.GetY(), a.c.GetZ() + b.c.GetZ());
+    public static Quaternion operator -(Quaternion a, Quaternion b) =>
+        new Quaternion(a.r - b.r, a.c.GetX() - b.c.GetX(), a.c.GetY() - b.c.GetY(), a.c.GetZ() - b.c.GetZ());
+    //Scalar multiplication
+    public static Quaternion operator &(Quaternion a, double s) =>
+        new Quaternion(a.r * s, s & a.c);
+    public static Quaternion operator &(double s, Quaternion a) =>
+        new Quaternion(a.r * s, s & a.c);
+    //multiplication
+    public static Quaternion operator *(Quaternion a, Quaternion b) =>
+        new Quaternion(a.r*b.r - a.c*b.c, (a.r & b.c) + (b.r & a.c) + (Vector3D.CrossProduct(a.c, b.c)));
+    //magnitude
+    public static double operator !(Quaternion a) => (Math.Sqrt(a.r*a.r + a.c.GetMagnitude() * a.c.GetMagnitude()));
+    //conjugate
+    public static Quaternion operator ~(Quaternion a) => new Quaternion(a.r, -1&a.c);
+    //inverse
+    public static Quaternion operator -(Quaternion a) => (~a & (1/(!a * !a)));
+
+    //public static Quaternion Rotate(Vector3D p, )
+    //{
+        
+    //}
+    #endregion
 }
 
