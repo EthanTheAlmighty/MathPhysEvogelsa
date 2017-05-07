@@ -696,10 +696,12 @@ public class Quaternion
     //inverse
     public static Quaternion operator -(Quaternion a) => (~a & (1/(!a * !a)));
 
-    //public static Quaternion Rotate(Vector3D p, )
-    //{
-        
-    //}
+    public static Quaternion Rotate(Vector3D p, Vector3D v, double θ)
+    {
+        Quaternion rot = new Quaternion(Math.Cos(θ), Math.Sin(θ) & p);
+        Quaternion point = new Quaternion(0, p);
+        return (rot * (point * +Rot));
+    }
     #endregion
 }
 
