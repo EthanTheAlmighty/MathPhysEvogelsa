@@ -214,6 +214,11 @@ public class Vector3D
         return String.Format("Alpha: {0:F2}° Beta: {1:F2}° Gamma: {2:F2}°",
             GetAlpha(), GetBeta(), GetGamma());
     }
+
+    public override string ToString()
+    {
+        return String.Format("<{0:f3}, {1:f3}, {2:f3}>", x, y, z);
+    }
     #endregion
 
     #region "Gets"
@@ -664,25 +669,32 @@ public class Quaternion
 {
     double r;
     Vector3D c;
-
+    //constructor that takes a scalar and vector
     public Quaternion(double scalar, Vector3D vect)
     {
         r = scalar;
         c = vect;
     }
-
+    //constructor that can take 4 scalars for math operations that are easier to code this way
     public Quaternion(double r, double x, double y, double z)
     {
         this.r = r;
-        this.c = new Vector3D(x, y, z);
+        c = new Vector3D(x, y, z);
+    }
+
+    public override string ToString()
+    {
+        return String.Format("[{0:F3}, {1:F3}]", r, c.ToString());
     }
 
     #region Operator Overloads
+    //addition overload
     public static Quaternion operator +(Quaternion a, Quaternion b) =>
         new Quaternion(a.r + b.r, a.c.GetX() + b.c.GetX(), a.c.GetY() + b.c.GetY(), a.c.GetZ() + b.c.GetZ());
+    //subtraction overload
     public static Quaternion operator -(Quaternion a, Quaternion b) =>
         new Quaternion(a.r - b.r, a.c.GetX() - b.c.GetX(), a.c.GetY() - b.c.GetY(), a.c.GetZ() - b.c.GetZ());
-    //Scalar multiplication
+    //Scalar multiplication for both is the scalar is before or after the quaternion
     public static Quaternion operator &(Quaternion a, double s) =>
         new Quaternion(a.r * s, s & a.c);
     public static Quaternion operator &(double s, Quaternion a) =>
@@ -696,10 +708,19 @@ public class Quaternion
     public static Quaternion operator ~(Quaternion a) => new Quaternion(a.r, -1&a.c);
     //inverse
     public static Quaternion operator -(Quaternion a) => (~a & (1/(!a * !a)));
-
+    /// <summary>
+    /// Rotate takes a point to rotate, the axis about which it will rotate, and
+    /// the number of degrees that it will rotate
+    /// </summary>
+    /// <param name="p">The point that will be rotated</param>
+    /// <param name="v">axis the rotation will be going about</param>
+    /// <param name="θ">degrees that the point will rotate</param>
+    /// <returns></returns>
     public static Quaternion Rotate(Vector3D p, Vector3D v, double θ)
     {
-        Quaternion rot = new Quaternion(Math.Cos(θ), Math.Sin(θ) & p);
+        double tempAngle = (θ / 2) * (Math.PI / 180);
+
+        Quaternion rot = new Quaternion(Math.Cos(tempAngle), Math.Sin(tempAngle) & !v);
         Quaternion point = new Quaternion(0, p);
         return (rot * (point * -rot));
     }
